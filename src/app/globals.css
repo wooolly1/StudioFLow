@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Minimal Luxury — light theme
+       - Background: warm off-white
+       - Foreground: deep navy
+       - Primary: deep navy
+       - Accent / Gold: muted champagne
+       - Borders: soft neutral
+    */
+    --background: 36 33% 98%;          /* warm off-white */
+    --foreground: 222 47% 11%;         /* deep navy */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 15%;            /* deep navy */
+    --primary-foreground: 36 33% 98%;
+
+    --accent: 220 20% 95%;
+    --accent-foreground: 222 47% 15%;
+
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 42%;
+
+    --gold: 36 42% 60%;                /* muted champagne */
+    --gold-foreground: 222 47% 11%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 150 55% 35%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 222 47% 25%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* RTL support: direction is set on <html>; use logical properties in layouts. */
+  :root[dir="rtl"] body {
+    font-family: var(--font-ibm-arabic), system-ui, sans-serif;
+  }
+
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+
+  /* subtle focus ring, luxury feel */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .bg-grain {
+    background-image: radial-gradient(hsl(var(--muted)) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: 0 0;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
